@@ -1,11 +1,14 @@
-package com.project1.taxi;
+package com.project1.taxi.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
-@Component
-
+@Getter
+@Setter
 public class Customers {
 
 
