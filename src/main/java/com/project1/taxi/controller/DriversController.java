@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DriversController {
 
-    @RequestMapping(value = "/driver/{name}/{carNumber}",method = RequestMethod.POST)
+    @RequestMapping(value = "/driver/{name}/{carNumber}",method = {RequestMethod.POST,RequestMethod.GET})
     public String RegisterDriver(@PathVariable("name") String name,@PathVariable("carNumber") String carNumber){
         return "ok"+name+carNumber;
     }
