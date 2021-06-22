@@ -1,5 +1,7 @@
 package com.project1.taxi.data;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 //import java.util.Queue;
 
