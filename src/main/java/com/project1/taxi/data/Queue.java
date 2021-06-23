@@ -1,5 +1,6 @@
 package com.project1.taxi.data;
 
+import com.project1.taxi.model.Customers;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -27,5 +28,8 @@ public class Queue<E> {
             System.out.print(item+" ");
         }
         System.out.println();
+    }
+    public ArrayList<E> getList(){
+        return queue;
     }
 }

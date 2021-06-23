@@ -15,6 +15,7 @@ public class Customers {
 
     private String id;
     private String name;
+    private String cellPhone;
 
 
     public Customers() {    //no!! String id, String name

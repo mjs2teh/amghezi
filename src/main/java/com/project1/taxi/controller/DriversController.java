@@ -13,11 +13,11 @@ import java.util.Random;
 
 @RestController
 public class DriversController {
-    public final DriverList driverLis;
+    public final DriverList driverList;
 
     @Autowired
     public DriversController(DriverList driverLis) {
-        this.driverLis = driverLis;
+        this.driverList = driverLis;
     }
 
     @RequestMapping(value = "/driver/{name}/{carNumber}",method = {RequestMethod.POST,RequestMethod.GET})
@@ -28,7 +28,7 @@ public class DriversController {
         driver.setId(Integer.toString(rand.nextInt(100)));
         driver.setName(name);
         driver.setCarNumber(carNumber);
-        driverLis.Enqueue(driver);
-        return driverLis; //Integer.toString(driverLis.size());
+        driverList.Enqueue(driver);
+        return driverList; //Integer.toString(driverLis.size());
     }
 }
