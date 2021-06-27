@@ -4,6 +4,7 @@ import com.project1.taxi.data.CustomerList;
 import com.project1.taxi.data.DriverList;
 import com.project1.taxi.data.OrderList;
 import com.project1.taxi.model.Customers;
+import com.project1.taxi.model.Drivers;
 import com.project1.taxi.model.Orders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -24,19 +25,36 @@ public class OrdersController {
 
     @Scheduled(fixedRate = 20000)
     public void SetDriverToCustomer(){
-        if (customerList.size()>=1) {
+        if (driverList.size()>= customerList.size() && customerList.size()>=1){
             for (Customers to : customerList.getList()) {
                 System.out.println(to.getId());
                 System.out.println(driverList.getList());
 
-                if (driverList.size() >= 1) {
+                //if (driverList.size() >= 1) {
                     Random rand = new Random();
                     Orders order = new Orders(Integer.toString(rand.nextInt(100)), driverList.Dequeue().getId(), customerList.Dequeue().getId());
 
                     orderList.Enqueue(order);
-                }
+               // }
             }
         }
+        else if (customerList.size()>= driverList.size() && driverList.size()>= 1){
+            for (Drivers to : driverList.getList()) {
+                System.out.println(to.getId());
+                System.out.println(customerList.getList());
+
+                //if (driverList.size() >= 1) {
+                    Random rand = new Random();
+                    Orders order = new Orders(Integer.toString(rand.nextInt(100)), driverList.Dequeue().getId(), customerList.Dequeue().getId());
+
+                    orderList.Enqueue(order);
+                //}
+            }
+        }
+//        if (customerList.size()>=1) {
+//
+           System.out.println("end");
+//        }
 
     }
 }
