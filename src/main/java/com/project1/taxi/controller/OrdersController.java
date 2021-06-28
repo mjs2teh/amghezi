@@ -6,12 +6,17 @@ import com.project1.taxi.data.OrderList;
 import com.project1.taxi.model.Customers;
 import com.project1.taxi.model.Drivers;
 import com.project1.taxi.model.Orders;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import java.util.Random;
-@Component
 
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.logging.Logger;
+
+@Component
+@Slf4j
 public class OrdersController {
     public final DriverList driverList;
     public final CustomerList customerList;
@@ -26,7 +31,10 @@ public class OrdersController {
     @Scheduled(fixedRate = 20000)
     public void SetDriverToCustomer(){
         if (driverList.size()>= customerList.size() && customerList.size()>=1){
-            for (Customers to : customerList.getList()) {
+            ArrayList<Customers> cus = new ArrayList<>(customerList.getList()); ;
+            for (Customers to : cus) {
+                log.info(to.getId());
+
                 System.out.println(to.getId());
                 System.out.println(driverList.getList());
 
@@ -39,7 +47,9 @@ public class OrdersController {
             }
         }
         else if (customerList.size()>= driverList.size() && driverList.size()>= 1){
-            for (Drivers to : driverList.getList()) {
+            ArrayList<Drivers> dri = new ArrayList<>(driverList.getList());
+            for (Drivers to : dri) {
+                log.info(to.getId());
                 System.out.println(to.getId());
                 System.out.println(customerList.getList());
 
