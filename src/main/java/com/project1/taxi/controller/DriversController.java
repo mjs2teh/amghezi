@@ -2,6 +2,7 @@ package com.project1.taxi.controller;
 
 import com.project1.taxi.data.DriverList;
 import com.project1.taxi.model.Drivers;
+import lombok.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,9 @@ public class DriversController {
     public DriverList RegisterDriver(@PathVariable("name") String name,@PathVariable("carNumber") String carNumber){
         Drivers driver =new Drivers();
         Random rand = new Random();
-        driver.setId(Integer.toString(rand.nextInt(100)));
+        //driver.setId(Integer.toString(rand.nextInt(100)));
+        //driver.setId(driver.);
+
         driver.setName(name);
         driver.setCarNumber(carNumber);
         driverList.Enqueue(driver);

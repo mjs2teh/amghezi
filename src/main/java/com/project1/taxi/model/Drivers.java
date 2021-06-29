@@ -1,15 +1,25 @@
 package com.project1.taxi.model;
 
+import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 @Component
 @Getter
 @Setter
+@Entity
 public class Drivers {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@Generated
     private String id;
     private String name;
     private String carNumber;

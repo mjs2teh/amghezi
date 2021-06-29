@@ -23,7 +23,7 @@ public class CustomersController {
         Random rand = new Random();
         customer.setName(name);
         customer.setCellPhone(cellPhone);
-        customer.setId(Integer.toString(rand.nextInt(100)));
+        //customer.setId(Integer.toString(rand.nextInt(100)));
         customerList.Enqueue(customer);
         return customerList;
     }
