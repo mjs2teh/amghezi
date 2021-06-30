@@ -6,22 +6,22 @@ import lombok.Setter;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Component
 @Getter
 @Setter
 @Entity
+@Table
 public class Drivers {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Generated
     private String id;
+    @Column
     private String name;
+    @Column
     private String carNumber;
 
     public Drivers() {
