@@ -6,10 +6,7 @@ import lombok.Setter;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Component
 @Getter
@@ -21,7 +18,9 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Generated
     private String id;
+    @Column
     private String driverId;
+    @Column
     private String customerId;
 
     public Orders() {

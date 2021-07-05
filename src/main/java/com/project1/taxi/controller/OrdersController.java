@@ -40,7 +40,7 @@ public class OrdersController {
 
                 //if (driverList.size() >= 1) {
                     Random rand = new Random();
-                    Orders order = new Orders(driverList.Dequeue().getId(), customerList.Dequeue().getId()); //Integer.toString(rand.nextInt(100))
+                    Orders order = new Orders(driverList.Dequeue().getId().toString(), customerList.Dequeue().getId()); //Integer.toString(rand.nextInt(100))
 
                     orderList.Enqueue(order);
                // }
@@ -49,13 +49,13 @@ public class OrdersController {
         else if (customerList.size()>= driverList.size() && driverList.size()>= 1){
             ArrayList<Drivers> dri = new ArrayList<>(driverList.getList());
             for (Drivers to : dri) {
-                log.info(to.getId());
+                log.info("{} {}",to.getId(),"salam");
                 System.out.println(to.getId());
                 System.out.println(customerList.getList());
 
                 //if (driverList.size() >= 1) {
                     Random rand = new Random();
-                    Orders order = new Orders(driverList.Dequeue().getId(), customerList.Dequeue().getId()); //Integer.toString(rand.nextInt(100)),
+                    Orders order = new Orders(driverList.Dequeue().getId().toString(), customerList.Dequeue().getId()); //Integer.toString(rand.nextInt(100)),
 
                     orderList.Enqueue(order);
                 //}

@@ -18,7 +18,7 @@ public class Drivers {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Generated
-    private String id;
+    private Long id;
     @Column
     private String name;
     @Column

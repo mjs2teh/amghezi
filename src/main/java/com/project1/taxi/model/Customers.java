@@ -8,10 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Component
 @Getter
@@ -25,7 +22,9 @@ public class Customers {
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Generated
     private String id;
+    @Column
     private String name;
+    @Column
     private String cellPhone;
 
 
