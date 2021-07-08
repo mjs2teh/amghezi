@@ -21,7 +21,11 @@ public class DriverService {
 
     public String add(Drivers drivers) {
         driverRepository.save(drivers);
-        return "Ok";
+        return "added";
+    }
+    public String delete(Drivers drivers){
+        driverRepository.delete(drivers);
+        return "deleted";
     }
 
 }

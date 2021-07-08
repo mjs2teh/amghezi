@@ -21,6 +21,7 @@ public class OrdersController {
     public final DriverList driverList;
     public final CustomerList customerList;
     public final OrderList orderList;
+
     @Autowired
     public OrdersController(DriverList driverList, CustomerList customerList, OrderList orderList) {
         this.driverList = driverList;
@@ -29,41 +30,41 @@ public class OrdersController {
     }
 
     @Scheduled(fixedRate = 20000)
-    public void SetDriverToCustomer(){
-        if (driverList.size()>= customerList.size() && customerList.size()>=1){
-            ArrayList<Customers> cus = new ArrayList<>(customerList.getList()); ;
+    public void SetDriverToCustomer() {
+        if (driverList.size() >= customerList.size() && customerList.size() >= 1) {
+            ArrayList<Customers> cus = new ArrayList<>(customerList.getList());
+            ;
             for (Customers to : cus) {
-                log.info(to.getId());
+                log.info("{}",to.getId());
 
                 System.out.println(to.getId());
                 System.out.println(driverList.getList());
 
                 //if (driverList.size() >= 1) {
-                    Random rand = new Random();
-                    Orders order = new Orders(driverList.Dequeue().getId().toString(), customerList.Dequeue().getId()); //Integer.toString(rand.nextInt(100))
+                Random rand = new Random();
+                Orders order = new Orders(driverList.Dequeue().getId().toString(), customerList.Dequeue().getId().toString()); //Integer.toString(rand.nextInt(100))
 
-                    orderList.Enqueue(order);
-               // }
+                orderList.Enqueue(order);
+                // }
             }
-        }
-        else if (customerList.size()>= driverList.size() && driverList.size()>= 1){
+        } else if (customerList.size() >= driverList.size() && driverList.size() >= 1) {
             ArrayList<Drivers> dri = new ArrayList<>(driverList.getList());
             for (Drivers to : dri) {
-                log.info("{} {}",to.getId(),"salam");
+                log.info("{} {}", to.getId(), "salam");
                 System.out.println(to.getId());
                 System.out.println(customerList.getList());
 
                 //if (driverList.size() >= 1) {
-                    Random rand = new Random();
-                    Orders order = new Orders(driverList.Dequeue().getId().toString(), customerList.Dequeue().getId()); //Integer.toString(rand.nextInt(100)),
+                Random rand = new Random();
+                Orders order = new Orders(driverList.Dequeue().getId().toString(), customerList.Dequeue().getId().toString()); //Integer.toString(rand.nextInt(100)),
 
-                    orderList.Enqueue(order);
+                orderList.Enqueue(order);
                 //}
             }
         }
 //        if (customerList.size()>=1) {
 //
-           System.out.println("end");
+        System.out.println("end");
 //        }
 
     }

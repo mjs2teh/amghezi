@@ -41,7 +41,7 @@ public class DriversController {
             driver.setCarNumber(carNumber);
             driverService.add(driver);
             driverList.Enqueue(driver);
-            log.info("SAVED209873465092364509872635029");
+            log.info("Driver Inserted");
 
             return driverList; //Integer.toString(driverLis.size());
         } catch (Exception e) {
