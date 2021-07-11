@@ -24,6 +24,9 @@ public class Drivers {
     @Column
     private String carNumber;
 
+//    @OneToOne(mappedBy = "driverId")
+//    private Orders orders;
+
     public Drivers() {
 //        this.id = id;
 //        this.name = name;

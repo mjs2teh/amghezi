@@ -39,7 +39,7 @@ public class DriversController {
         try {
             driver.setName(name);
             driver.setCarNumber(carNumber);
-            driverService.add(driver);
+            driver = driverService.add(driver);
             driverList.Enqueue(driver);
             log.info("Driver Inserted");
 

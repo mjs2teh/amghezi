@@ -27,6 +27,8 @@ public class Customers {
     @Column
     private String cellPhone;
 
+//    @OneToOne(mappedBy = "customerId")
+//    private Orders orders;
 
     public Customers() {    //no!! String id, String name
 //        this.id = id;

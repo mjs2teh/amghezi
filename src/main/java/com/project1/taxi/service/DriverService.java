@@ -19,9 +19,15 @@ public class DriverService {
         return driverRepository.findAll();
     }
 
-    public String add(Drivers drivers) {
-        driverRepository.save(drivers);
-        return "added";
+    public Drivers add(Drivers drivers) {
+        try {
+            return driverRepository.save(drivers);
+//            return "added";
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
     public String delete(Drivers drivers){
         driverRepository.delete(drivers);

@@ -1,9 +1,7 @@
 package com.project1.taxi.model;
 
-import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -17,20 +15,34 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Generated
-    private String id;
-    @Column
-    private String driverId;
-    @Column
-    private String customerId;
+    private Long id;
+    //@Column
+    @Column(name = "driver_id")
+    private  Long driverId;
+    //@Column
+    @Column(name = "customer_id")
+    private Long customerId;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "driver_id", referencedColumnName = "id",updatable = false,insertable = false)       //(name="id")
+    private Drivers driver;
+
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id",updatable = false,insertable = false)
+    private Customers customer;
 
     public Orders() {
     }
 
-    public Orders(String driverId, String customerId) {
-        //this.id = id;
-        this.driverId = driverId;
-        this.customerId = customerId;
+    public Orders(Drivers driver, Customers customer) {
+        this.driverId = driver.getId();
+        this.customerId = customer.getId();
     }
+//    public Orders(Long driverId, Long customerId) {
+//        //this.id = id;
+//        this.driverId.setId(driverId);
+//        this.customerId.setId(customerId);
+//    }
 
     //    public Orders() {
 //        this.id = id;
