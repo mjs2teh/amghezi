@@ -1,9 +1,8 @@
 package com.project1.taxi.model;
 
-import lombok.Generated;
+
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -33,6 +32,11 @@ public class Drivers {
 //        this.carNumber = carNumber;
     }
 
+    public Drivers(Long id, String name, String carNumber) {
+        this.id = id;
+        this.name = name;
+        this.carNumber = carNumber;
+    }
 //    public String getId() {
 //        return id;
 //    }
